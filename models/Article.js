@@ -1,30 +1,32 @@
-// Require mongoose
 var mongoose = require("mongoose");
-// Create Schema class
+
+// Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
-// Create article schema
+// Using the Schema constructor, create a new UserSchema object
+// This is similar to a Sequelize model
 var ArticleSchema = new Schema({
-  // title is a required string
+  // `title` is required and of type String
   title: {
     type: String,
     required: true
   },
-  // link is a required string
-  // todo save summary paragraph instead of link
+  // `link` is required and of type String
   link: {
     type: String,
     required: true
   },
-  // Saves array of notes.
-  notes: [{
+  // `note` is an object that stores a Note id
+  // The ref property links the ObjectId to the Note model
+  // This allows us to populate the Article with an associated Note
+  note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
-  }]
+  }
 });
 
-// Create the Article model with the ArticleSchema
+// This creates our model from the above schema, using mongoose's model method
 var Article = mongoose.model("Article", ArticleSchema);
 
-// Export the model
+// Export the Article model
 module.exports = Article;
