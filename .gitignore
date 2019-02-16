@@ -1,1 +1,3 @@
 .ds-store
+node_modules
+.env
