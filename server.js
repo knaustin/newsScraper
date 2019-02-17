@@ -3,8 +3,8 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var request = require("request");
-var rp = require("request-promise");
+// var request = require("request");
+// var rp = require("request-promise");
 var cheerio = require("cheerio");
 
 var db = require("./models");
